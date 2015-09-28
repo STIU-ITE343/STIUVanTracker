@@ -1,13 +1,52 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.stamford.scitech.stiuvantracker.fragment3">
 
-    <TextView
+    <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Settings go here" />
+        android:text="Notifications"
+        android:id="@+id/switch_notification"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:checked="false" />
 
-</FrameLayout>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Airport Link"
+        android:id="@+id/checkBox_arl"
+        android:layout_below="@+id/switch_notification"
+        android:layout_centerHorizontal="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ban Suan/MT"
+        android:id="@+id/checkBox_bs"
+        android:layout_below="@+id/checkBox_arl"
+        android:layout_centerHorizontal="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MRT Culture Center"
+        android:id="@+id/checkBox_mrt"
+        android:layout_below="@+id/checkBox_bs"
+        android:layout_centerHorizontal="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lumpini 44"
+        android:id="@+id/checkBox_lumpini"
+        android:layout_below="@+id/checkBox_mrt"
+        android:layout_centerHorizontal="true"
+        android:checked="false" />
+</RelativeLayout>
