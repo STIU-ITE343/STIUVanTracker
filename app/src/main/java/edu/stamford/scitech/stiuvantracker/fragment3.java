@@ -6,18 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Fragment3 extends Fragment {
+public class fragment3 extends Fragment {
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      @return A new instance of fragment Fragment3.
      */
-    public static Fragment3 newInstance() {
-        return new Fragment3();
+    public static fragment3 newInstance() {
+        return new fragment3();
     }
 
-    public Fragment3() {
+    public fragment3() {
         // Required empty public constructor
     }
 

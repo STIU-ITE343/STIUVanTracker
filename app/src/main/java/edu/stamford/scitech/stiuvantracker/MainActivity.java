@@ -74,10 +74,10 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int pos) {
             switch(pos) {
 
-                case 0: return Fragment1.newInstance();
-                case 1: return Fragment2.newInstance();
-                case 2: return Fragment3.newInstance();
-                default: return Fragment1.newInstance();
+                case 0: return fragment1.newInstance();
+                case 1: return fragment2.newInstance();
+                case 2: return fragment3.newInstance();
+                default: return fragment1.newInstance();
             }
         }
 

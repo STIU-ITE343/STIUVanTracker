@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Fragment2 extends Fragment {
+public class fragment2 extends Fragment {
 
     /**
      * Use this factory method to create a new instance of
@@ -14,11 +14,11 @@ public class Fragment2 extends Fragment {
      *
      * @return A new instance of fragment Fragment2.
      */
-    public static Fragment2 newInstance() {
-        return new Fragment2();
+    public static fragment2 newInstance() {
+        return new fragment2();
     }
 
-    public Fragment2() {
+    public fragment2() {
         // Required empty public constructor
     }
 
