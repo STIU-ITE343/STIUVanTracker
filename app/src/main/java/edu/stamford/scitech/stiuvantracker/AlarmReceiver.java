@@ -35,11 +35,13 @@ public class AlarmReceiver extends BroadcastReceiver {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
                 notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        VanTitle = notificationIntent.getStringExtra("VanName");
+        VanTime = notificationIntent.getStringExtra("VanTime");
 
         NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(
                 context)
-                .setContentTitle("STIU Van leaving")
-                .setContentText("STIU Van leaving in 15 minutes.")
+                .setContentTitle(VanTitle + " " + VanTime + " Van leaving soon.")
+                .setContentText(VanTitle + " " + VanTime + " Van leaving in 5 minutes.")
                 .setAutoCancel(true).setWhen(when)
                 .setContentIntent(pendingIntent)
                 .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000});

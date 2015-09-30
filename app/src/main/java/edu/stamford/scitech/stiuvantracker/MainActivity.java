@@ -58,8 +58,22 @@ public class MainActivity extends AppCompatActivity {
                 intent_bsmt730.putExtra("VanName", "Baan Suan/MT");
                 intent_bsmt730.putExtra("VanTime", "7.30am");
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent_bsmt730, PendingIntent.FLAG_UPDATE_CURRENT);
-               // AlarmManager am_bsmt730 = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
-               // am_bsmt730.setRepeating(AlarmManager.RTC_WAKEUP, bsmt730.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+               //AlarmManager am_bsmt730 = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
+               //am_bsmt730.setRepeating(AlarmManager.RTC_WAKEUP, bsmt730.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+
+                //10AM Van from Baan Suan/MT to STIU
+                Calendar bsmt10 = Calendar.getInstance();
+                bsmt10.set(Calendar.HOUR_OF_DAY, 9);
+                bsmt10.set(Calendar.MINUTE, 55);
+                bsmt10.set(Calendar.SECOND, 0);
+                //Pass it to AlarmReceiver
+                Intent intent_bsmt10 = new Intent(MainActivity.this, AlarmReceiver.class);
+                intent_bsmt10.putExtra("VanName", "Baan Suan/MT");
+                intent_bsmt10.putExtra("VanTime", "10.00am");
+                PendingIntent pendingIntent2 = PendingIntent.getBroadcast(MainActivity.this, 0, intent_bsmt10, PendingIntent.FLAG_UPDATE_CURRENT);
+                //AlarmManager am_bsmt10 = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
+                //am_bsmt10.setRepeating(AlarmManager.RTC_WAKEUP, bsmt730.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent2);
             }
         }
     }
