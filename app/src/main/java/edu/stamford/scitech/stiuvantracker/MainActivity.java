@@ -1,6 +1,9 @@
 package edu.stamford.scitech.stiuvantracker;
 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,7 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
+
+    boolean NotificationEnabled = false;
+    boolean BSMT = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +43,25 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabsFromPagerAdapter(pagerAdapter);
         // This method ensures that tab selection events update the ViewPager and page changes update the selected tab.
         tabLayout.setupWithViewPager(viewPager);
+
+
+        //Notification
+        if (NotificationEnabled) {
+            if (BSMT) {
+                //7.30AM Van from Baan Suan/MT to STIU
+                Calendar bsmt730 = Calendar.getInstance();
+                bsmt730.set(Calendar.HOUR_OF_DAY, 7);
+                bsmt730.set(Calendar.MINUTE, 25);
+                bsmt730.set(Calendar.SECOND, 0);
+                //Pass it to AlarmReceiver
+                Intent intent_bsmt730 = new Intent(MainActivity.this, AlarmReceiver.class);
+                intent_bsmt730.putExtra("VanName", "Baan Suan/MT");
+                intent_bsmt730.putExtra("VanTime", "7.30am");
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent_bsmt730, PendingIntent.FLAG_UPDATE_CURRENT);
+               // AlarmManager am_bsmt730 = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
+               // am_bsmt730.setRepeating(AlarmManager.RTC_WAKEUP, bsmt730.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+            }
+        }
     }
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
@@ -71,6 +98,14 @@ public class MainActivity extends AppCompatActivity {
             return tabName;
         }
 
+
+    }
+
+    public boolean getNotificationEnabled() {
+        return NotificationEnabled;
+    }
+
+    public void setNotificationEnabled() {
 
     }
 
