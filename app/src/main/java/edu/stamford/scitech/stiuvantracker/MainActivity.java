@@ -1,7 +1,7 @@
 package edu.stamford.scitech.stiuvantracker;
 
 
-import android.app.AlarmManager;
+
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     boolean NotificationEnabled = false;
     boolean BSMT = false;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void DriverMode(MenuItem item){
+        Intent intent = new Intent(this, DriverMode.class);
+        startActivity(intent);
     }
 }
 
