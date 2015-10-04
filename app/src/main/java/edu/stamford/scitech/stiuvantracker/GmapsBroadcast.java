@@ -1,12 +1,18 @@
 package edu.stamford.scitech.stiuvantracker;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -29,6 +35,9 @@ public class GmapsBroadcast extends AppCompatActivity implements
     // Properties
     // =============================================================================================
 
+    private static final String TAG = "Tracker - GMaps Share";
+    private Button bc;
+    private String buttonstate = "stop";
     private boolean mRequestingLocationUpdates = false;
 
     // Google API - Locations
@@ -45,15 +54,18 @@ public class GmapsBroadcast extends AppCompatActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gmaps_broadcast);
+
 
         // Get Channel Name
         Intent intent = getIntent();
         channelName = intent.getExtras().getString("channel");
+        Log.d(TAG, "Passed Channel Name: " + channelName);
 
         Toast.makeText(getApplicationContext(), channelName,
-                Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_LONG).show();
 
         // Start Google Client
         this.buildGoogleApiClient();
@@ -63,8 +75,27 @@ public class GmapsBroadcast extends AppCompatActivity implements
                 .findFragmentById(R.id.mapbc);
         mapFragment.getMapAsync(this);
 
+
         // Start PubNub
         mPubnub = PubNub.startPubnub();
+
+        bc = (Button) findViewById(R.id.button_bc);
+        bc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mRequestingLocationUpdates = !mRequestingLocationUpdates;
+                if (buttonstate == "stop" && mRequestingLocationUpdates) {
+                    buttonstate = "start";
+                    bc.setText("Stop Broadcast");
+                    startSharingLocation();
+                } else if (buttonstate == "start" && !mRequestingLocationUpdates) {
+                    buttonstate = "stop";
+                    bc.setText("Start Broadcast");
+                    stopSharingLocation();
+
+                }
+            }
+        });
     }
 
     @Override
@@ -95,8 +126,28 @@ public class GmapsBroadcast extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
+
+
+    public void startSharingLocation() {
+        Log.d(TAG, "Starting Location Updates");
+        mGoogleApiClient.connect();
+    }
+
+    public void stopSharingLocation() {
+        Log.d(TAG, "Stop Location Updates & Disconect to Google API");
+        stopLocationUpdates();
+        mGoogleApiClient.disconnect();
+    }
+
+    protected void stopLocationUpdates() {
+        LocationServices.FusedLocationApi.removeLocationUpdates(
+                mGoogleApiClient, this);
+    }
+
+
     @Override
     public void onConnected(Bundle bundle) {
+        Log.d(TAG, "Connected to Google API for Location Management");
 
         if (mRequestingLocationUpdates) {
             LocationRequest mLocationRequest = createLocationRequest();
@@ -108,13 +159,13 @@ public class GmapsBroadcast extends AppCompatActivity implements
 
     @Override
     public void onConnectionSuspended(int i) {
-
+        Log.d(TAG, "Connection to Google API suspended");
     }
 
     @Override
     public void onLocationChanged(Location location) {
 
-
+        Log.d(TAG, "Location Detected");
         mLatLng = new LatLng(location.getLatitude(), location.getLongitude());
 
         // Broadcast information on PubNub Channel
@@ -132,11 +183,12 @@ public class GmapsBroadcast extends AppCompatActivity implements
 
         mGoogleMap = googleMap;
         mGoogleMap.setMyLocationEnabled(true);
+        Log.d(TAG, "Map Ready");
 
     }
 
     private LocationRequest createLocationRequest() {
-
+        Log.d(TAG, "Building request");
         LocationRequest mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(10000);
         mLocationRequest.setFastestInterval(5000);

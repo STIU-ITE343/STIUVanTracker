@@ -75,7 +75,7 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
         super.onActivityCreated(savedInstanceState);
 
         Toast.makeText(getActivity(), "User Mode Enabled",
-                Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_LONG).show();
 
         SupportMapFragment mf = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.the_map);
         mf.getMapAsync(this);

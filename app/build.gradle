@@ -24,11 +24,15 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:design:22.2.0'
     compile 'com.google.android.gms:play-services:6.5.87'
-    //compile 'com.pubnub:pubnub-android:3.7.5'
+    compile 'com.pubnub:pubnub-android:3.7.5'
     //compile files('libs/bcprov-jdk15on-1.47.jar')
 
 }
 
 repositories {
     mavenCentral()
+}
+
+dependencies{
+    compile 'org.bouncycastle:bcprov-jdk15on:1.47'
 }

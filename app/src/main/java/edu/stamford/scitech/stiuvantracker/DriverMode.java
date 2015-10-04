@@ -23,6 +23,9 @@ public class DriverMode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_mode);
 
+        Toast.makeText(getApplicationContext(), "Driver Mode Enabled",
+                Toast.LENGTH_LONG).show();
+
         final Spinner spin = (Spinner)findViewById(R.id.van_spinner);
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -40,7 +43,7 @@ public class DriverMode extends AppCompatActivity {
 
     public void Broadcast(View v){
         //Toast.makeText(getApplicationContext(), selected,
-               // Toast.LENGTH_SHORT).show();
+        // Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(this, GmapsBroadcast.class);
         intent.putExtra("channel", selected);

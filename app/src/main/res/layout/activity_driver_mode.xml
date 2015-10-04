@@ -15,7 +15,7 @@
         android:text="@string/action_driver"
         android:layout_gravity="center_horizontal"
         android:textSize="20dp"
-/>
+        />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
         android:spinnerMode="dialog"
         android:entries="@array/van_list"
         android:layout_gravity="center_horizontal"
-/>
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         android:id="@+id/button"
         android:onClick="Broadcast"
         android:layout_gravity="center_horizontal"
-/>
+        />
 
     <!--<fragment
         android:id="@+id/mapbc"
