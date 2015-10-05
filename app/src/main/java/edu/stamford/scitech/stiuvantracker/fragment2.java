@@ -88,9 +88,9 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap map) {
-        map.addMarker(new MarkerOptions()
-                .position(new LatLng(10, 10))
-                .title("Hello world"));
+        //map.addMarker(new MarkerOptions()
+                //.position(new LatLng(10, 10))
+                //.title("Hello world"));
 
         mGoogleMap = map;
         mGoogleMap.setMyLocationEnabled(true);
@@ -105,37 +105,37 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
         Toast.makeText(getActivity(), "User Mode Enabled",
                 Toast.LENGTH_LONG).show();
 
-        SupportMapFragment mf = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.the_map);
-        mf.getMapAsync(this);
+        //SupportMapFragment mf = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.the_map);
+        //mf.getMapAsync(this);
 
         // Get Channel Name
         //Intent intent = getActivity().getIntent();
         //channelName = intent.getExtras().getString("channel");
         channelName = "Bansuan";
-        /*Log.d(TAG, "Passed Channel Name: " + channelName);
+        Log.d(TAG, "Passed Channel Name: " + channelName);
         Toast.makeText(getActivity(), channelName,
                 Toast.LENGTH_LONG).show();
 
         SupportMapFragment mf = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.the_map);
         mf.getMapAsync(this);
 
-        viewButton = (Button) getActivity().findViewById(R.id.button_bc);
+        viewButton = (Button) getActivity().findViewById(R.id.button3);
         viewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mRequestingLocationUpdates = !mRequestingLocationUpdates;
                 if (buttonstate == "stop" && mRequestingLocationUpdates) {
                     buttonstate = "start";
-                    viewButton.setText("Stop Broadcast");
+                    viewButton.setText("Stop View");
                     startFollowingLocation();
                 } else if (buttonstate == "start" && !mRequestingLocationUpdates) {
                     buttonstate = "stop";
-                    viewButton.setText("Start Broadcast");
+                    viewButton.setText("View Location");
                     stopFollowingLocation();
 
                 }
             }
-        });*/
+        });
 
     }
 
