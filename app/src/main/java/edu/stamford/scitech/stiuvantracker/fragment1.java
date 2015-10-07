@@ -1,8 +1,6 @@
 package edu.stamford.scitech.stiuvantracker;
 
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -50,26 +48,11 @@ public class fragment1 extends Fragment {
         lv = (ListView) getActivity().findViewById(R.id.lv);
 
         String[] values = new String[] {
-                "Airport Link",
-                "MRT",
-                "Bansuan",
-                "Stamford",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder",
-                "Schedule Item Placeholder"
+                "(A)8.10AM-04.10PM *EVERY HOUR*",
+                "(B)7.45AM *ONLY MRT*",
+                "(C)8.00AM-4.00PM *EVERY HOUR*",
+                "(D)9.45AM-6.45PM *EVERY HOUR*",
+                "No van on saturday & sunday",
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),

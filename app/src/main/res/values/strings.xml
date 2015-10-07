@@ -17,6 +17,14 @@
         <item>Stamford</item>
     </string-array>
 
+
+    <string-array name="van_line">
+        <item>(A)Airport Link-Stamford</item>
+        <item>(B)MRT-Stamford</item>
+        <item>(C)Bansuan-Stamford</item>
+        <item>(D)Stamford-Airport/Bansuan</item>
+    </string-array>
+
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_driver_mode">DriverMode</string>
