@@ -73,6 +73,7 @@ public class fragment1 extends Fragment {
                         "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
                         .show();
 
+                //fragment2.newInstance();
                 //Intent intent = new Intent(getActivity(), fragment2.class);
                 //intent.putExtra("channel", itemValue);
                 //startActivity(intent);
