@@ -21,15 +21,6 @@ tools:context="edu.stamford.scitech.stiuvantracker.fragment1">
         android:layout_gravity="right|top"
         android:text="Select"
         />
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/van_spinner"
-        android:prompt="@string/select_van"
-        android:spinnerMode="dialog"
-        android:entries="@array/van_line"
-        android:layout_gravity="left|top"
-        />
 
     <Button
         android:layout_width="wrap_content"
