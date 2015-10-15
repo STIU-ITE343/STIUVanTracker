@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
     public void buttonOnClick(View v) {
 // do something when the button is clicked
         Button button=(Button) v;
