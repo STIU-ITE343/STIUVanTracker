@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Notifications">
+
+        <CheckBoxPreference
+            android:key="checkbox_arl"
+            android:title="Airport Link"
+            android:defaultValue="checked"/>
+
+        <CheckBoxPreference
+            android:key="checkbox_bsmt"
+            android:title="Ban Suan / MT"
+            android:defaultValue="unchecked"/>
+
+        <CheckBoxPreference
+            android:key="checkbox_mrt"
+            android:title="MRT Culture Center"
+            android:defaultValue="unchecked"/>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
