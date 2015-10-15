@@ -52,7 +52,7 @@ public class fragment1 extends Fragment {
                 "(B)MRT-Stamford from 7.45AM *ONLY MRT*",
                 "(C)Bansuan-Stamford from 8.00AM-4.00PM *EVERY HOUR*",
                 "(D)Stamford-Airport/Bansuan from 9.45AM-6.45PM *EVERY HOUR*",
-                "No van on saturday & sunday",
+
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),

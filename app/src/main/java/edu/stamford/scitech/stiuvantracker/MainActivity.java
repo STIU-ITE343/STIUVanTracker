@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.Calendar;
 
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
 

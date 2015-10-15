@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <receiver android:name=".Notification" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -32,9 +34,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <!-- AIzaSyA3UIDkDdMALKxvZDV-C0jVBoDBLBEzkNc -->
+        <!-- Niko key - AIzaSyAMFYzjM4PCQl8eZKOozVdWFO6JFMeCosY -->
+        <!-- AIzaSyAPwAVGW5AAB7UFJEs1NL8hPV1OJl8hjXg -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAPwAVGW5AAB7UFJEs1NL8hPV1OJl8hjXg" />
+            android:value="AIzaSyAMFYzjM4PCQl8eZKOozVdWFO6JFMeCosY" />
 
         <activity
             android:name=".DriverMode"
@@ -44,6 +48,9 @@
             android:name=".GmapsBroadcast"
             android:label="@string/title_activity_gmaps_broadcast" >
         </activity>
+
+        <!--<receiver  android:process=":remote" android:name="edu.stamford.scitech.stiuvantracker.NotificationPublisher"></receiver>-->
+        <receiver android:name="edu.stamford.scitech.stiuvantracker.NotificationPublisher" android:exported="false"  />
     </application>
 
 </manifest>

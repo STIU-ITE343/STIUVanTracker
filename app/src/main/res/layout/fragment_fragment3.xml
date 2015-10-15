@@ -12,6 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
+        android:onClick="testNotification"
         android:checked="false" />
 
     <CheckBox
@@ -49,4 +50,12 @@
         android:layout_below="@+id/checkBox_mrt"
         android:layout_centerHorizontal="true"
         android:checked="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Notification"
+        android:id="@+id/button_test"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
