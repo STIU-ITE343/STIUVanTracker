@@ -31,5 +31,13 @@ tools:context="edu.stamford.scitech.stiuvantracker.fragment1">
         android:layout_marginBottom="120dp"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="198dp"
+
+        android:text="No van on saturday and sunday"
+
+        android:layout_gravity="center_horizontal|bottom" />
+
 
 </FrameLayout>
