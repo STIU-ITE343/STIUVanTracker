@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.Calendar;
 
@@ -80,7 +81,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+    public void buttonOnClick(View v) {
+// do something when the button is clicked
+        Button button=(Button) v;
+        ((Button) v).setText("Selected");
+    }
 
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
