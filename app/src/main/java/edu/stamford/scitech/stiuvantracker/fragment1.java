@@ -48,10 +48,10 @@ public class fragment1 extends Fragment {
         lv = (ListView) getActivity().findViewById(R.id.lv);
 
         String[] values = new String[] {
-                "(A)8.10AM-04.10PM *EVERY HOUR*",
-                "(B)7.45AM *ONLY MRT*",
-                "(C)8.00AM-4.00PM *EVERY HOUR*",
-                "(D)9.45AM-6.45PM *EVERY HOUR*",
+                "(A)Airport Link-Stamford from 8.10AM-04.10PM *EVERY HOUR*",
+                "(B)MRT-Stamford from 7.45AM *ONLY MRT*",
+                "(C)Bansuan-Stamford from 8.00AM-4.00PM *EVERY HOUR*",
+                "(D)Stamford-Airport/Bansuan from 9.45AM-6.45PM *EVERY HOUR*",
                 "No van on saturday & sunday",
         };
 
