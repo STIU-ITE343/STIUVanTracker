@@ -1,7 +1,6 @@
 package edu.stamford.scitech.stiuvantracker;
 
 
-
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
