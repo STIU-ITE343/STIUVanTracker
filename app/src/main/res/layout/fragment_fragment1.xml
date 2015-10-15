@@ -22,6 +22,7 @@ tools:context="edu.stamford.scitech.stiuvantracker.fragment1">
         android:text="Select your Van"
         />
 
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
