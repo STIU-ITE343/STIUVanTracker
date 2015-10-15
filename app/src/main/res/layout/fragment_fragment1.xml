@@ -25,11 +25,11 @@ tools:context="edu.stamford.scitech.stiuvantracker.fragment1">
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View all van"
+        android:text="Select van"
         android:id="@+id/button2"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginBottom="120dp"
-        />
+        android:onClick="buttonOnClick" />
 
     <TextView
         android:layout_width="wrap_content"
