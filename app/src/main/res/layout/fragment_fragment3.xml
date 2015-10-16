@@ -12,14 +12,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:onClick="testNotification"
         android:checked="false" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Airport Link"
-        android:id="@+id/checkBox_arl"
+        android:id="@+id/ch_arl"
         android:layout_below="@+id/switch_notification"
         android:layout_centerHorizontal="true"
         android:checked="false" />
@@ -28,8 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ban Suan/MT"
-        android:id="@+id/checkBox_bs"
-        android:layout_below="@+id/checkBox_arl"
+        android:id="@+id/ch_bs"
+        android:layout_below="@+id/ch_arl"
         android:layout_centerHorizontal="true"
         android:checked="false" />
 
@@ -37,8 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MRT Culture Center"
-        android:id="@+id/checkBox_mrt"
-        android:layout_below="@+id/checkBox_bs"
+        android:id="@+id/ch_mrt"
+        android:layout_below="@+id/ch_bs"
         android:layout_centerHorizontal="true"
         android:checked="false" />
 
@@ -46,8 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lumpini 44"
-        android:id="@+id/checkBox_lumpini"
-        android:layout_below="@+id/checkBox_mrt"
+        android:id="@+id/ch_lumpini"
+        android:layout_below="@+id/ch_mrt"
         android:layout_centerHorizontal="true"
         android:checked="false" />
 

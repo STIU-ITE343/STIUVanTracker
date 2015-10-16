@@ -1,6 +1,7 @@
 package edu.stamford.scitech.stiuvantracker;
 
 
+import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.ToggleButton;
+
+import com.parse.Parse;
+import com.parse.ParseInstallation;
 
 import java.util.Calendar;
 
@@ -22,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     boolean NotificationEnabled = false;
     boolean BSMT = false;
+    CheckBox ch_bs,ch_mrt,ch_arl,ch_lumpini;
 
 
 
@@ -29,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //Connect to Parse
+        Parse.initialize(this, "DG1hXIksSZpvPi1kf3TkReRh7cnzeYtgAV2DawSq", "9niCc5ZTlAZaGJLgSoyaqi4bz68lVzaWfpvJdzaC");
+        ParseInstallation.getCurrentInstallation().saveInBackground();
 
         // Set a toolbar which will replace the action bar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,37 +62,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
-        //Notification
-        if (NotificationEnabled) {
-            if (BSMT) {
-                //7.30AM Van from Baan Suan/MT to STIU
-                Calendar bsmt730 = Calendar.getInstance();
-                bsmt730.set(Calendar.HOUR_OF_DAY, 7);
-                bsmt730.set(Calendar.MINUTE, 25);
-                bsmt730.set(Calendar.SECOND, 0);
-                //Pass it to AlarmReceiver
-                Intent intent_bsmt730 = new Intent(MainActivity.this, AlarmReceiver.class);
-                intent_bsmt730.putExtra("VanName", "Baan Suan/MT");
-                intent_bsmt730.putExtra("VanTime", "7.30am");
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent_bsmt730, PendingIntent.FLAG_UPDATE_CURRENT);
-               //AlarmManager am_bsmt730 = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
-               //am_bsmt730.setRepeating(AlarmManager.RTC_WAKEUP, bsmt730.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-
-
-                //10AM Van from Baan Suan/MT to STIU
-                Calendar bsmt10 = Calendar.getInstance();
-                bsmt10.set(Calendar.HOUR_OF_DAY, 9);
-                bsmt10.set(Calendar.MINUTE, 55);
-                bsmt10.set(Calendar.SECOND, 0);
-                //Pass it to AlarmReceiver
-                Intent intent_bsmt10 = new Intent(MainActivity.this, AlarmReceiver.class);
-                intent_bsmt10.putExtra("VanName", "Baan Suan/MT");
-                intent_bsmt10.putExtra("VanTime", "10.00am");
-                PendingIntent pendingIntent2 = PendingIntent.getBroadcast(MainActivity.this, 0, intent_bsmt10, PendingIntent.FLAG_UPDATE_CURRENT);
-                //AlarmManager am_bsmt10 = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
-                //am_bsmt10.setRepeating(AlarmManager.RTC_WAKEUP, bsmt730.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent2);
-            }
-        }
     }
 
     public void buttonOnClick(View v) {
