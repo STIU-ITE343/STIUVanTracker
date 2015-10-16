@@ -35,6 +35,14 @@ import com.pubnub.api.Pubnub;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
 public class fragment2 extends Fragment implements OnMapReadyCallback {
 
     private static final String TAG = "Tracker - GMaps Follow";
@@ -43,6 +51,7 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
     private boolean mRequestingLocationUpdates = false;
     private Button viewButton;
     private String buttonstate = "stop";
+    private String ret = "";
 
     // Google Maps
     private GoogleMap mGoogleMap;
@@ -105,16 +114,41 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
         Toast.makeText(getActivity(), "User Mode Enabled",
                 Toast.LENGTH_LONG).show();
 
+        try {
+            InputStream inputStream = getActivity().openFileInput("mytextfile.txt");
+
+            if (inputStream != null) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ((receiveString = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+
+                //Toast.makeText(getActivity(), ret,
+                  //      Toast.LENGTH_SHORT).show();
+            }
+        } catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        }
+
         //SupportMapFragment mf = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.the_map);
         //mf.getMapAsync(this);
 
         // Get Channel Name
         //Intent intent = getActivity().getIntent();
         //channelName = intent.getExtras().getString("channel");
-        channelName = "Bansuan";
+        channelName = ret;
         Log.d(TAG, "Passed Channel Name: " + channelName);
-        Toast.makeText(getActivity(), channelName,
-                Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(), channelName,
+          //      Toast.LENGTH_LONG).show();
 
         SupportMapFragment mf = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.the_map);
         mf.getMapAsync(this);
@@ -183,6 +217,10 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
         mMarker = mGoogleMap.addMarker(mMarkerOptions.position(mLatLng));
     }
 
+    private void updateSeat(){
+
+    }
+
     // =========================================================================
     // PubNub Callback
     // =========================================================================
@@ -207,6 +245,7 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
                     updatePolyline();
                     updateCamera();
                     updateMarker();
+                    //updateSeat();
                 }
             });
         }
