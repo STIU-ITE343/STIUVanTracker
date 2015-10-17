@@ -51,7 +51,7 @@
         <!-- AIzaSyAPwAVGW5AAB7UFJEs1NL8hPV1OJl8hjXg -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyA3UIDkDdMALKxvZDV-C0jVBoDBLBEzkNc" />
+            android:value="AIzaSyAPwAVGW5AAB7UFJEs1NL8hPV1OJl8hjXg" />
 
         <activity
             android:name=".DriverMode"

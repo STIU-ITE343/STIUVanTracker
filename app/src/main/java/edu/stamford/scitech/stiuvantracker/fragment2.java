@@ -63,7 +63,7 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
 
     // PubNub
     private Pubnub mPubnub;
-    private String channelName;
+    private String channelName = "Bansuan";
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -114,30 +114,7 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
         Toast.makeText(getActivity(), "User Mode Enabled",
                 Toast.LENGTH_LONG).show();
 
-        try {
-            InputStream inputStream = getActivity().openFileInput("mytextfile.txt");
 
-            if (inputStream != null) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ((receiveString = bufferedReader.readLine()) != null) {
-                    stringBuilder.append(receiveString);
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
-
-                //Toast.makeText(getActivity(), ret,
-                  //      Toast.LENGTH_SHORT).show();
-            }
-        } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        }
 
         //SupportMapFragment mf = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.the_map);
         //mf.getMapAsync(this);
@@ -161,6 +138,33 @@ public class fragment2 extends Fragment implements OnMapReadyCallback {
                 if (buttonstate == "stop" && mRequestingLocationUpdates) {
                     buttonstate = "start";
                     viewButton.setText("Stop View");
+                    /*try {
+                        InputStream inputStream = getActivity().openFileInput("mytextfile.txt");
+
+                        if (inputStream != null) {
+                            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                            String receiveString = "";
+                            StringBuilder stringBuilder = new StringBuilder();
+
+                            while ((receiveString = bufferedReader.readLine()) != null) {
+                                stringBuilder.append(receiveString);
+                            }
+
+                            inputStream.close();
+                            ret = stringBuilder.toString();
+
+                            //Toast.makeText(getActivity(), ret,
+                            //      Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (FileNotFoundException e) {
+                        Log.e("login activity", "File not found: " + e.toString());
+                    } catch (IOException e) {
+                        Log.e("login activity", "Can not read file: " + e.toString());
+                    }*/
+                    Globals g = Globals.getInstance();
+                    ret=g.getData();
+                    channelName = ret;
                     startFollowingLocation();
                 } else if (buttonstate == "start" && !mRequestingLocationUpdates) {
                     buttonstate = "stop";

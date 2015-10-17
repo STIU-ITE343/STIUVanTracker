@@ -113,7 +113,7 @@ public class fragment1 extends Fragment {
                             .show();
                 }
 
-                try {
+                /*try {
                     FileOutputStream fileout = getActivity().openFileOutput("mytextfile.txt", getActivity().MODE_PRIVATE);
                     OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
                     outputWriter.write(itemValue.toString());
@@ -125,7 +125,10 @@ public class fragment1 extends Fragment {
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
+
+                Globals g = Globals.getInstance();
+                g.setData(itemValue);
 
                 //fragment2.newInstance();
                 //Intent intent = new Intent(getActivity(), fragment2.class);
@@ -138,33 +141,9 @@ public class fragment1 extends Fragment {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Toast.makeText(getActivity(), "clicked",
+                 //Toast.makeText(getActivity(), itemValue+"",
                 //Toast.LENGTH_SHORT).show();
 
-                try {
-                    InputStream inputStream = getActivity().openFileInput("mytextfile.txt");
-
-                    if (inputStream != null) {
-                        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                        String receiveString = "";
-                        StringBuilder stringBuilder = new StringBuilder();
-
-                        while ((receiveString = bufferedReader.readLine()) != null) {
-                            stringBuilder.append(receiveString);
-                        }
-
-                        inputStream.close();
-                        ret = stringBuilder.toString();
-
-                        Toast.makeText(getActivity(), ret,
-                                Toast.LENGTH_SHORT).show();
-                    }
-                } catch (FileNotFoundException e) {
-                    Log.e("login activity", "File not found: " + e.toString());
-                } catch (IOException e) {
-                    Log.e("login activity", "Can not read file: " + e.toString());
-                }
             }
         });
     }
